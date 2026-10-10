@@ -1,0 +1,119 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devsecops-http-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  devsecops-http-dashboard.json: |-
+    {
+      "uid": "devsecops-http",
+      "title": "DevSecOps HTTP Availability",
+      "tags": ["devsecops", "blackbox", "availability"],
+      "schemaVersion": 39,
+      "version": 1,
+      "refresh": "10s",
+      "time": {
+        "from": "now-15m",
+        "to": "now"
+      },
+      "panels": [
+        {
+          "id": 1,
+          "type": "stat",
+          "title": "HTTP Probe Success (1 = UP)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "targets": [
+            {
+              "expr": "probe_success{job=\"devsecops-web-http\"}",
+              "refId": "A"
+            }
+          ],
+          "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 0,
+            "y": 0
+          },
+          "fieldConfig": {
+            "defaults": {
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "values": false
+            }
+          }
+        },
+        {
+          "id": 2,
+          "type": "stat",
+          "title": "HTTP Status Code",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "targets": [
+            {
+              "expr": "probe_http_status_code{job=\"devsecops-web-http\"}",
+              "refId": "A"
+            }
+          ],
+          "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 8,
+            "y": 0
+          },
+          "options": {
+            "reduceOptions": {
+              "calcs": ["lastNotNull"],
+              "values": false
+            }
+          }
+        },
+        {
+          "id": 3,
+          "type": "timeseries",
+          "title": "HTTP Probe Duration (seconds)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "targets": [
+            {
+              "expr": "probe_duration_seconds{job=\"devsecops-web-http\"}",
+              "refId": "A",
+              "legendFormat": "{{instance}}"
+            }
+          ],
+          "gridPos": {
+            "h": 8,
+            "w": 16,
+            "x": 0,
+            "y": 5
+          }
+        }
+      ]
+    }

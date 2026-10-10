@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devsecops-web
+  labels:
+    app: devsecops-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devsecops-web
+  template:
+    metadata:
+      labels:
+        app: devsecops-web
+    spec:
+      containers:
+        - name: web
+          image: devsecops-web:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

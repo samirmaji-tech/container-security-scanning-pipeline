@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevSecOps Container Security Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 760px; margin: 70px auto; padding: 0 24px; color: #172033; line-height: 1.6; }
+    .tag { display: inline-block; padding: 4px 10px; border-radius: 16px; background: #e7f5ec; color: #17633a; font-size: 13px; }
+    h1 { margin-bottom: 8px; } code { background: #f2f4f7; padding: 2px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <span class="tag">DevSecOps Demo</span>
+  <h1>Container Security Scanning Pipeline</h1>
+  <p>This sample web page is packaged into a Docker image. The project scans that image with Trivy to identify known vulnerabilities before it is promoted for deployment.</p>
+  <h2>Pipeline stages</h2>
+  <ol>
+    <li>Build the Docker image.</li>
+    <li>Scan the image with Trivy.</li>
+    <li>Generate a human-readable report.</li>
+    <li>Review HIGH and CRITICAL findings before release.</li>
+  </ol>
+  <p><strong>Demo note:</strong> this page is a sample application; the security value comes from scanning the image that packages it.</p>
+</body>
+</html>

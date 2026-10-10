@@ -1,0 +1,29 @@
+reports/trivy-report.txt
+reports/trivy-report.json
+.DS_Store
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519
+credentials
+secrets.yaml
+secrets.yml
+
+# Cloud and Kubernetes local configuration
+.aws/
+.kube/
+kubeconfig
+
+# Terraform-generated files
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Logs and temporary files
+*.log
+.DS_Store
