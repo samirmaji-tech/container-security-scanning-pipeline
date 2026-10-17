@@ -1,6 +1,6 @@
 # Container Security Scanning Pipeline
 
-A small, demonstrable DevSecOps project inspired by project #31, **Container Security Scanning Pipeline**, in the supplied DevOps Projects guide. The guide's broader project lists Trivy, Clair, Anchore, Jenkins, Docker and Kubernetes. This starter deliberately focuses first on Docker + Trivy so it can be demonstrated locally without deploying cloud infrastructure.
+A container security and DevSecOps project using Docker, Trivy, Kubernetes, Prometheus, Grafana, and Blackbox Exporter to scan image vulnerabilities, deploy a web application, and monitor HTTP availability with alerting.
 
 ## Objective
 
