@@ -15,7 +15,7 @@ This project was built to practise and demonstrate four important DevOps and sec
 
 ## Architecture
 
-![Container Security Architecture](images/container-security-architecture.png)
+![Container Security Scanning Pipeline Architecture](images/container-security-architecture.png)
 
 ```text
                     APPLICATION DELIVERY
